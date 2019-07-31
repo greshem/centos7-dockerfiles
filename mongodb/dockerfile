@@ -1,0 +1,19 @@
+
+FROM  greshem_scm_base_common
+MAINTAINER greshem
+RUN yum clean all 
+RUN yum install -y  mongodb-server git   && yum clean all 
+COPY        ./  /opt/mongodb 
+
+WORKDIR     /opt/mongodb
+RUN         echo  after  install start  app
+RUN  sed '/bind_ip/{s/.*/bind_ip =  0.0.0.0/g}'  -i  /etc/mongod.conf
+RUN  sed '/fork/{s/.*/ fork = false /g}'           -i  /etc/mongod.conf
+
+
+
+
+USER 0
+EXPOSE      27017
+#ENTRYPOINT [  "/opt/mongodb/entrypoint.sh" ] 
+ENTRYPOINT [ "mongod",  "-vvvvv",    "-f",  "/etc/mongod.conf" ]

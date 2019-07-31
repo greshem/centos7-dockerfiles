@@ -1,0 +1,6 @@
+FROM  greshem/greshem_scm_base_common
+MAINTAINER greshem
+RUN   yum install -y python2-pip   tar  curl  unzip wget  python-pip mysql-devel   gcc  python-devel  git  python-pip python-pip python-devel gcc mysql-devel curl-devel
+
+USER 0
+CMD ["/bin/bash"]

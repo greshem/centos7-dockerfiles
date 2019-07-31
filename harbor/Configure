@@ -1,0 +1,5 @@
+git clone https://github.com/vmware/harbor
+cd harbor/make
+change harbor.cfg
+run sh install.sh
+

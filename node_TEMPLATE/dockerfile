@@ -1,0 +1,28 @@
+
+FROM  greshem/greshem_scm_base_common
+
+#FROM centos:7
+#MAINTAINER greshem
+#RUN yum install epel-release -y && yum clean all
+#RUN yum update -y && yum clean all
+#RUN yum install -y yum-utils yum-plugin-ovl tar  curl  unzip wget  npm  make  && yum clean all 
+
+COPY        ./  /opt/TEMPLATE 
+
+
+WORKDIR     /opt/TEMPLATE
+RUN         npm install 
+
+USER 0
+EXPOSE      5000
+#ENTRYPOINT [  "/opt/TEMPLATE/entrypoint.sh" ] 
+
+CMD [ "npm", "run", "dev" ]
+
+#cnpm install / npm install / yarn install
+# development mode -> http://localhost:5000
+#cnpm run dev
+# production mode
+#cnpm run build
+
+

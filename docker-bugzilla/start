@@ -1,0 +1,43 @@
+#!/bin/sh
+# Set up bugzilla and run apache2
+#DEFAULT_WEBSERVER_GROUP=www-data
+#DEFAULT_MYSQL_HOST=172.17.42.1
+#DEFAULT_MYSQL_PORT=0
+#DEFAULT_MYSQL_DB=bugzilla
+#DEFAULT_MYSQL_USER=bugzilla
+#DEFAULT_MYSQL_PWD=1234
+cd /var/www/html
+
+# Substitute values into bugzilla localconfig
+#sed --in-place -f - localconfig <<SED
+#s/webservergroup *= *'[a-zA-Z0-9.]\+'/webservergroup = '${WEBSERVER_GROUP:-$DEFAULT_WEBSERVER_GROUP}'/
+#s/db_host *= *'[a-zA-Z0-9.]\+'/db_host = '${MYSQL_HOST:-$DEFAULT_MYSQL_HOST}'/
+#s/db_port *= *[0-9.]\+/db_port = ${MYSQL_PORT:-$DEFAULT_MYSQL_PORT}/
+#s/db_name *= *'[a-zA-Z0-9.]\+'/db_name = '${MYSQL_DB:-$DEFAULT_MYSQL_DB}'/
+#s/db_user *= *'[a-zA-Z0-9.]\+'/db_user = '${MYSQL_USER:-$DEFAULT_MYSQL_USER}'/
+#s/^\$db_pass\s*=\s*.*$/\$db_pass = '${MYSQL_PWD:-$DEFAULT_MYSQL_PWD}';/
+#SED
+
+# Remove voting disable file
+rm -f extensions/Voting/disabled
+
+# Verify bugzilla setup
+./checksetup.pl
+
+# Copy existing params to new bugzilla installation
+cp /opt/data/params data/
+
+# Copy new params file to persistant location
+# change permissions to RO
+cp data/params /opt/data/
+chmod a-w data/params
+
+# Change ownership
+chown -R www-data:www-data .
+
+# Remove stall pid file
+rm -f /var/run/apache2/apache2.pid
+
+# Start apache2
+. /etc/apache2/envvars
+/usr/sbin/apache2 -D FOREGROUND

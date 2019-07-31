@@ -1,0 +1,25 @@
+FROM centos:7.5.1804
+MAINTAINER greshem
+
+#RUN yum install epel-release -y 
+COPY yum.repos.d/CentOS-Base.repo   /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-CR.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-Debuginfo.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-fasttrack.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-Media.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-Sources.repo /etc/yum.repos.d/
+COPY yum.repos.d/CentOS-Vault.repo /etc/yum.repos.d/
+COPY yum.repos.d/epel.repo /etc/yum.repos.d/
+COPY yum.repos.d/luminous.repo /etc/yum.repos.d/
+COPY yum.repos.d/qemu.repo /etc/yum.repos.d/
+COPY yum.repos.d/queens.repo /etc/yum.repos.d/
+COPY yum.repos.d/zabbix.repo /etc/yum.repos.d/
+#COPY yum.repos.d/ovirt.repo /etc/yum.repos.d/
+
+RUN yum clean all 
+
+
+RUN yum install -y yum-utils yum-plugin-ovl  curl  unzip wget  tomcat openjdk maven  nginx npm  vim  c++    && yum clean all 
+
+USER 0

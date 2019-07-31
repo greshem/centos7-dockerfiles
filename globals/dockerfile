@@ -1,0 +1,15 @@
+
+#FROM centos
+FROM  greshem_scm_base_common
+MAINTAINER greshem
+#RUN yum install epel-release  
+RUN yum install -y  global   && yum clean all 
+COPY        ./  /tmp/global 
+RUN mkdir /src/
+
+WORKDIR     /src/
+RUN         echo  after  install start  app
+
+USER 0
+#EXPOSE      22222
+ENTRYPOINT [  "/tmp/global/entrypoint.sh" ] 

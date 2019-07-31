@@ -1,0 +1,12 @@
+FROM  centos:6
+
+RUN   yum install -y httpd php php-mysql lsof  mysql mysql-server
+
+COPY  prettyindustries.com  /var/www/html/
+#COPY  mysql  /var/lib/mysql/
+COPY  entrypoint.sh  /var/www/html/entrypoint.sh
+
+
+USER 0
+EXPOSE      80
+ENTRYPOINT [  "/var/www/html/entrypoint.sh" ] 

@@ -1,0 +1,19 @@
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  ports:
+    - "8081:80"
+  environment:
+    - PMA_HOST=mysql
+    - PMA_PORT=3306
+  restart: always
+  links:
+      - mysql
+mysql:
+  image: mariadb:10.1.21
+  volumes:
+    - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./mysql:/docker-entrypoint-initdb.d
+    - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+  restart: always

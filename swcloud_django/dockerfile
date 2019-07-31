@@ -1,0 +1,12 @@
+
+#FROM centos:7
+FROM  greshem_scm_base_common
+MAINTAINER greshem
+
+#RUN yum install epel-release -y && yum clean all
+RUN yum update -y && yum clean all
+RUN yum install -y yum-utils yum-plugin-ovl tar  curl  unzip wget  python-pip mysql-devel   gcc  python-devel  && yum clean all 
+
+
+USER 0
+EXPOSE      33333

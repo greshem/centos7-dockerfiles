@@ -1,0 +1,20 @@
+FROM  greshem/greshem_scm_base_common
+MAINTAINER greshem
+
+RUN yum install -y zabbix-agent 
+COPY        ./  /opt/zabbix_client/
+RUN chmod 777  /opt/zabbix_client/
+
+WORKDIR     /opt/zabbix_client/
+#RUN  bash  entrypoint.sh 
+
+ADD zabbix_agentd.conf  /etc/zabbix/zabbix_agentd.conf
+
+RUN chmod  777 -R /var/run/zabbix/
+RUN chmod 777 -R  /var/log/zabbix/ 
+
+USER 1001
+#EXPOSE      80
+
+ENTRYPOINT ["bash", "entrypoint.sh"]
+cmd ["zabbix_agentd", "-f"]

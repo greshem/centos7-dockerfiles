@@ -1,0 +1,17 @@
+
+#FROM  greshem_scm_base_common
+FROM  centos
+MAINTAINER greshem
+
+#RUN yum install -y  tts   && yum clean all 
+COPY  Linux_voice_1.109/libs/x64/libmsc.so /lib64/
+COPY  Linux_voice_1.109/bin/tts_sample /bin/
+COPY        ./  /tmp/tts 
+
+WORKDIR     /tmp/
+RUN         echo  after  install start  app
+
+USER 0
+EXPOSE      22222
+ENTRYPOINT [  "/bin/tts_sample" ] 
+CMD [ '-h'

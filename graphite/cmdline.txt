@@ -1,0 +1,30 @@
+
+yum -y update
+yum install -y httpd net-snmp perl pycairo mod_wsgi python-devel git gcc-c++
+yum -y install epel-release
+yum install -y python-pip node npm
+
+
+pip install 'django<1.6'
+pip install 'Twisted<12'
+pip install 'django-tagging<0.4'
+pip install whisper
+pip install graphite-web
+pip install carbon
+
+
+cp /opt/graphite/examples/example-graphite-vhost.conf /etc/httpd/conf.d/graphite.conf
+cp /opt/graphite/conf/storage-schemas.conf.example /opt/graphite/conf/storage-schemas.conf
+cp /opt/graphite/conf/storage-aggregation.conf.example /opt/graphite/conf/storage-aggregation.conf
+cp /opt/graphite/conf/graphite.wsgi.example /opt/graphite/conf/graphite.wsgi
+cp /opt/graphite/conf/graphTemplates.conf.example /opt/graphite/conf/graphTemplates.conf
+cp /opt/graphite/conf/carbon.conf.example /opt/graphite/conf/carbon.conf
+
+chown -R apache:apache /opt/graphite/storage/
+python /opt/graphite/webapp/graphite/manage.py syncdb
+
+systemctl enable httpd
+systemctl start httpd
+/opt/graphite/bin/carbon-cache.py start
+nohup /usr/bin/django-admin.py runserver --pythonpath /opt/graphite/webapp --settings graphite.settings 0.0.0.0:30000 &
+

@@ -1,0 +1,7 @@
+FROM centos:6
+MAINTAINER greshem
+
+RUN yum clean all 
+RUN yum install -y httpd  lsof    mysql-server  php  vim  unzip  php-mysql php-mbstring && yum clean all 
+
+USER 0

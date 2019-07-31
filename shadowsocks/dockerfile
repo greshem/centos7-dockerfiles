@@ -1,0 +1,11 @@
+
+FROM  swcloud_scm_base_common
+RUN yum -y install    python-pip python-devel 
+#RUN pip install    --trusted-host  pypi.douban.com  -i http://pypi.douban.com/simple/   -r /tmp/requirements.txt   
+RUN pip install   --trusted-host  pypi.douban.com  -i http://pypi.douban.com/simple/  shadowsocks==2.8.2
+COPY . /tmp/ss/
+
+USER  0
+EXPOSE 33400-33410
+ENTRYPOINT [  "bash", "/tmp/ss/entrypoint.sh" ]
+

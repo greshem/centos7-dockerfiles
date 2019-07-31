@@ -1,0 +1,21 @@
+
+# ~/greshem_images_dockerfiles/greshem_base_common/build.sh
+# ~/greshem_images_dockerfiles/greshem_base_common/dockerfile 
+# ~/greshem_images_dockerfiles/greshem_base_python/build.sh 
+# ~/greshem_images_dockerfiles/greshem_base_python/dockerfile 
+
+#FROM centos:7
+#MAINTAINER greshem
+#RUN yum install epel-release -y && yum clean all
+#RUN yum update -y && yum clean all
+#RUN yum install -y yum-utils yum-plugin-ovl tar  curl  unzip wget  python-pip mysql-devel   gcc  python-devel  && yum clean all 
+
+FROM  greshem/greshem_scm_base:python 
+
+COPY        ./  /tmp/mkdocs 
+WORKDIR     /tmp/mkdocs
+RUN         pip install   --trusted-host  pypi.douban.com  -i http://pypi.douban.com/simple/     -r  requirements.txt 
+
+USER 0
+EXPOSE      33333
+ENTRYPOINT [  "/tmp/mkdocs/entrypoint.sh" ] 

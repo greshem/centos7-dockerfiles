@@ -1,0 +1,8 @@
+# allinone模式在docker中部署collectd+influxdb+grafana监控
+#
+# 部署方式:
+#          sh build.sh LIBVIRT_IP HOST_IP
+#
+# LIBVIRT_IP: libvirt服务IP(非127.0.0.1)
+# HOST_IP: 本机IP(非127.0.0.1)
+#

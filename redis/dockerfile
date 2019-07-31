@@ -1,0 +1,16 @@
+#FROM  swcloud_scm_base_common
+FROM  qianzhongjie/swcloud_scm_base_common
+MAINTAINER swcloud
+
+RUN yum install -y  redis   && yum clean all 
+
+WORKDIR     /tmp/redis
+RUN         echo  after  install start  app
+
+ADD redis.conf  /etc/redis.conf
+
+USER 1001
+EXPOSE      6379
+COPY        ./  /tmp/redis 
+#ENTRYPOINT [  "/tmp/redis/entrypoint.sh" ] 
+ENTRYPOINT [  "/usr/bin/redis-server", "--protected-mode","no"]

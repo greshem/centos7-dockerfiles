@@ -1,0 +1,12 @@
+
+FROM centos:7
+MAINTAINER greshem
+
+RUN yum install epel-release -y && yum clean all
+RUN yum update -y && yum clean all
+RUN yum install -y yum-utils yum-plugin-ovl tar  curl  unzip wget  npm  make  && yum clean all 
+
+
+USER 0
+EXPOSE      22222
+#ENTRYPOINT [  "/tmp/base/entrypoint.sh" ] 

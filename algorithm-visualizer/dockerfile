@@ -1,0 +1,18 @@
+
+#FROM centos:7
+FROM  greshem/greshem_scm_base_common
+
+MAINTAINER greshem
+
+#RUN yum install epel-release -y && yum clean all
+#RUN yum update -y && yum clean all
+RUN yum install -y yum-utils yum-plugin-ovl tar  curl  unzip wget  npm  make  && yum clean all 
+
+COPY        ./  /opt/
+
+WORKDIR     /opt/algorithm-visualizer/
+RUN         npm install 
+
+USER 0
+EXPOSE      22222
+ENTRYPOINT [  "/opt/entrypoint.sh" ] 

@@ -1,0 +1,68 @@
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin:4.8.2
+  ports:
+    - "8081:80"
+  environment:
+    - PMA_HOST=mysql-mariadb
+    - PMA_PORT=3306
+  restart: always
+  links:
+      - mysql-mariadb
+
+
+phpmyadmin-raw:
+  image: phpmyadmin/phpmyadmin:4.8.2
+  ports:
+    - "8082:80"
+  environment:
+    - PMA_HOST=mysql-raw
+    - PMA_PORT=3306
+  restart: always
+  links:
+      - mysql-raw
+
+
+phpmyadmin-oracle:
+  image: phpmyadmin/phpmyadmin:4.8.2
+  ports:
+    - "8083:80"
+  environment:
+    - PMA_HOST=mysql-oracle
+    - PMA_PORT=3306
+  restart: always
+  links:
+      - mysql-oracle
+
+mysql-mariadb:
+    image: mariadb:10.1.20
+    #volumes:
+    #- ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    #- ./mysql:/docker-entrypoint-initdb.d
+    #- /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    #- /data/examstack/:/var/lib/mysql/
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=examstack
+    - MYSQL_ROOT_HOST=%
+    restart: always
+
+
+mysql-raw:
+    image: mysql:5.7.14_new
+    user: 1000:1000
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=examstack
+    - MYSQL_ROOT_HOST=%
+    restart: always
+
+mysql-oracle:
+  image: mysql/mysql-server:5.7.23
+  volumes:
+    - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./mysql:/docker-entrypoint-initdb.d
+    - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_ROOT_HOST=%
+  restart: always

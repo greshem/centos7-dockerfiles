@@ -1,0 +1,19 @@
+#FROM  127.0.0.1:5000/dnsmasq:latest
+#FROM centos
+FROM  chm_make 
+WORKDIR /html/
+RUN mkdir ~/bin/
+
+COPY template_HHC_v2.pl    ~/bin/template_HHC_v2.pl  
+COPY template_HHK_v2.pl    ~/bin/template_HHK_v2.pl  
+COPY template_HPP_v2.pl    ~/bin/template_HPP_v2.pl  
+RUN  dnf  install -y perl-Template-Toolkit  findutils
+
+COPY        ./  /tmp/chm_make
+ENTRYPOINT [  "/tmp/chm_make/entrypoint.sh" ] 
+
+#ENTRYPOINT [  "cd","/data", "&&","/usr/bin/python",  "-m", "SimpleHTTPServer",  "33336",  "/data " ]
+#WORKDIR  /data/
+
+#ENTRYPOINT [  "/usr/sbin/sshd"   ]
+
