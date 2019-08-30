@@ -2,11 +2,11 @@
 #FROM centos
 FROM  chm_make 
 WORKDIR /html/
-RUN mkdir ~/bin/
+RUN mkdir /root/bin/
 
-COPY template_HHC_v2.pl    ~/bin/template_HHC_v2.pl  
-COPY template_HHK_v2.pl    ~/bin/template_HHK_v2.pl  
-COPY template_HPP_v2.pl    ~/bin/template_HPP_v2.pl  
+COPY template_HHC_v2.pl    /root/bin/template_HHC_v2.pl  
+COPY template_HHK_v2.pl    /root/bin/template_HHK_v2.pl  
+COPY template_HPP_v2.pl    /root/bin/template_HPP_v2.pl  
 RUN  dnf  install -y perl-Template-Toolkit  findutils
 
 COPY        ./  /tmp/chm_make

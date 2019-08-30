@@ -4,10 +4,10 @@ FROM  docker.io/fedora
 
 RUN   dnf install -y   wine-core.i686  perl  wget global tar perl-Template-Toolkit iputils 
 
-COPY  wine_2016_12_08.tar.gz   ~/
+COPY  wine_2016_12_08.tar.gz   /root/
 
 WORKDIR /html/
-RUN   cd ~/  && tar -xzvf   wine_2016_12_08.tar.gz 
+RUN   cd /root/  && tar -xzvf   wine_2016_12_08.tar.gz 
 RUN  yum clean all 
 
 #ENTRYPOINT [  "cd","/data", "&&","/usr/bin/python",  "-m", "SimpleHTTPServer",  "33336",  "/data " ]

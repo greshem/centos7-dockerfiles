@@ -1,4 +1,4 @@
-if [ ! -f  ~/linux_src/TEMPLATE ];then
+if [ ! -f  /root/linux_src/TEMPLATE ];then
     git clone https://github.com/OsciiArt/TEMPLATE
 fi
 

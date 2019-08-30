@@ -17,11 +17,11 @@ COPY keystone.wsgi.conf /etc/nginx/
 COPY bootstrap.sh /usr/bin
 COPY pre-setup.sh /usr/bin
 COPY verify-keystone.sh /usr/bin
-COPY openrc ~/
+COPY openrc /root/
 RUN /usr/bin/pre-setup.sh
 
 VOLUME /var/lib/mysql
-WORKDIR ~
+WORKDIR /root
 CMD '/usr/bin/bootstrap.sh'
 
 EXPOSE 5000

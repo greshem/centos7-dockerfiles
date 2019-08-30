@@ -21,9 +21,9 @@
 /etc/systemd/system/
 /etc/tmpfiles.d/
 /etc/yp.conf
-~/ca-agent.p12
-~/cacert.p12
-~/.dogtag/
+/root/ca-agent.p12
+/root/cacert.p12
+/root/.dogtag/
 /usr/share/ipa/html/ca.crt
 /usr/share/ipa/html/configure.jar
 /usr/share/ipa/html/kerberosauth.xpi

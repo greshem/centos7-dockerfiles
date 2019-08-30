@@ -9,5 +9,5 @@
 
 #build dockerfile
 #docker build  --no-cache -t diamond:centos7 .
-docker build   -t diamond:centos7 .
-
+docker build   -t greshem/diamond:centos7 .
+docker push    greshem/diamond:centos7 

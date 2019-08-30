@@ -2,7 +2,7 @@
 #sed -i  '/app.listen/{s/.*/var server = app.listen(22222, "0.0.0.0")/}'  /opt/algorithm-visualizer/build/dev-server.js
 
 # port: process.env.PORT || 8080,
-# ~/linux_src/algorithm-visualizer/gulpfile.babel.js
+# /root/linux_src/algorithm-visualizer/gulpfile.babel.js
 
 
 cd /opt/algorithm-visualizer/

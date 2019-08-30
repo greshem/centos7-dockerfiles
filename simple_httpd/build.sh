@@ -1,12 +1,12 @@
 #!/bin/bash
-docker build -t simplehttpd:3.33 .
+# 服务器的搭建依赖  /root/bin/docker_2.1.1_register.pl 
+docker build -t greshem/simplehttpd:centos7  .
 
-docker build -f Dockerfile.python3  -t simplehttpd:python3  ./
+docker build -f Dockerfile.python3  -t greshem/simplehttpd:python3  ./
 
-#
-#docker run    127.0.0.1:5001/greshem/simplehttpd:3.33   
+docker push  greshem/simplehttpd:centos7  .
+docker push  greshem/simplehttpd:python3 
 
-#--name=3333
-# -v /home/username/opt/gitlab/data:/home/git/data \
-echo docker run    -p 33336:33336    -v /data/portage/:/data    simplehttpd:3.33
-docker run    -p 33336:33336    -v /data/portage/:/data    simplehttpd:python3
+echo docker run    -p 33336:33336    -v /tmp3/portage/:/opt/data    greshem/simplehttpd:centos7
+
+docker run    -p 33336:33336    -v /tmp3/portage/:/opt/data    greshem/simplehttpd:python3

@@ -1,1 +1,1 @@
-from ~/bin_ext/p
+from /root/bin_ext/p

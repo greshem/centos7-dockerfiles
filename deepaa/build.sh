@@ -1,4 +1,4 @@
-if [ ! -f  ~/linux_src/DeepAA ];then
+if [ ! -f  /root/linux_src/DeepAA ];then
     git clone https://github.com/OsciiArt/DeepAA
 fi
 

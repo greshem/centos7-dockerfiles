@@ -10,7 +10,7 @@
 
 cd /src/
 #gtags && htags 
-bash ~/global-4.4_logger/python_plug/one_step.sh 
+bash /root/global-4.4_logger/python_plug/one_step.sh 
 
 #if  [[ $name == "gtags" ]]  ; then
 #    gtags 

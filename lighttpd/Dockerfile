@@ -5,7 +5,7 @@
 #   "Maciej Lasyk" <maciek@lasyk.info>
 
 FROM centos:centos7
-FROM  qianzhongjie/swcloud_scm_base_common
+FROM  greshem/greshem_scm_base_common
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 # install main packages:

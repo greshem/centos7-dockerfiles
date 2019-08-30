@@ -1,5 +1,5 @@
 
-FROM  swcloud_scm_base_common
+FROM  greshem_scm_base_common
 RUN yum -y install    python-pip python-devel 
 #RUN pip install    --trusted-host  pypi.douban.com  -i http://pypi.douban.com/simple/   -r /tmp/requirements.txt   
 RUN pip install   --trusted-host  pypi.douban.com  -i http://pypi.douban.com/simple/  shadowsocks==2.8.2

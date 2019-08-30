@@ -1,9 +1,9 @@
 
-# ~/greshem_images_dockerfiles/greshem_base_common/build.sh
-# ~/greshem_images_dockerfiles/greshem_base_common/dockerfile 
+# /root/greshem_images_dockerfiles/greshem_base_common/build.sh
+# /root/greshem_images_dockerfiles/greshem_base_common/dockerfile 
 
-# ~/greshem_images_dockerfiles/greshem_base_python/build.sh 
-# ~/greshem_images_dockerfiles/greshem_base_python/dockerfile 
+# /root/greshem_images_dockerfiles/greshem_base_python/build.sh 
+# /root/greshem_images_dockerfiles/greshem_base_python/dockerfile 
 
 #FROM centos:7
 #MAINTAINER greshem

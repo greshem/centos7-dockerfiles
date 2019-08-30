@@ -1,7 +1,7 @@
 #!/bin/bash
-if [ ! -f  ~/wine_2016_12_08.tar.gz  ];
+if [ ! -f  /root/wine_2016_12_08.tar.gz  ];
 then
-   echo  ~/wine_2016_12_08.tar.gz  不存在 请拷贝一下  
+   echo  /root/wine_2016_12_08.tar.gz  不存在 请拷贝一下  
 fi
 
 docker build -t    chm_make .

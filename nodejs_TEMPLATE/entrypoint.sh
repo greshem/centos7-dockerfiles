@@ -4,7 +4,7 @@ cd /opt/nodejs_TEMPLATE/
 #1. express 的启动方式 
 #sed -i  '/app.listen/{s/.*/var server = app.listen(22222, "0.0.0.0")/}'  /opt/nodejs_TEMPLATE/build/dev-server.js
 # port: process.env.PORT || 8080,
-# ~/linux_src/nodejs_TEMPLATE/gulpfile.babel.js
+# /root/linux_src/nodejs_TEMPLATE/gulpfile.babel.js
 
 
 #2. glup 爱东方方式 

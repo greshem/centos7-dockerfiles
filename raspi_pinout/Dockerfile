@@ -8,7 +8,7 @@
 #RUN yum -y install epel-release
 #RUN cd /opt/
 
-#from ~/scm/greshem_scm_base_common/dockerfile 
+#from /root/scm/greshem_scm_base_common/dockerfile 
 FROM  greshem/greshem_scm_base_common
 RUN yum -y install git  python-pip python-pip
 COPY  ./requirements.txt   /opt/

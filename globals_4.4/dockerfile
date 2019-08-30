@@ -8,7 +8,7 @@ RUN yum install -y  ctags dos2unix file
 COPY        ./  /tmp/global 
 RUN mkdir /src/
 
-WORKDIR     ~/global-4.4_logger/
+WORKDIR     /root/global-4.4_logger/
 RUN  bash install.sh 
 
 USER 0

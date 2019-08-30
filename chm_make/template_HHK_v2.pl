@@ -3,7 +3,7 @@ use Template;
 
 	 # some useful options (see below for full list)
 	 my $config = {
-	    INCLUDE_PATH => "~/chm_mk_v2/template_hhc/",  # or list ref
+	    INCLUDE_PATH => "/root/chm_mk_v2/template_hhc/",  # or list ref
 	     INTERPOLATE  => 1,		      # expand "$var" in plain text
 	     POST_CHOMP	  => 1,		      # cleanup whitespace
 	  # PRE_PROCESS  => ’header’,	      # prefix each template

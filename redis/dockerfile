@@ -1,6 +1,6 @@
-#FROM  swcloud_scm_base_common
-FROM  qianzhongjie/swcloud_scm_base_common
-MAINTAINER swcloud
+#FROM  greshem_scm_base_common
+FROM  greshem/greshem_scm_base_common
+MAINTAINER greshem
 
 RUN yum install -y  redis   && yum clean all 
 

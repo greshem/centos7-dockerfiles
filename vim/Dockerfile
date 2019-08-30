@@ -12,8 +12,8 @@ RUN yum -y update; yum clean all
 RUN yum -y install vim 
 RUN mkdir /src/
 
-ADD root_vim ~/.vim/
-ADD .vimrc  ~/.vimrc
+ADD root_vim /root/.vim/
+ADD .vimrc  /root/.vimrc
 WORKDIR /src/
 
 CMD ["/bin/bash"]

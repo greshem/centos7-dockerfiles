@@ -6,7 +6,7 @@
 # and incorporating work from kubernetes
 
 #FROM centos:centos7
-FROM  qianzhongjie/swcloud_scm_base_common
+FROM  greshem/greshem_scm_base_common
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 LABEL io.k8s.description="Redis is an open source, in-memory data structure store, used as database, cache and message broker." \

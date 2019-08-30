@@ -45,7 +45,7 @@ Login into Keystone container
 ```
 docker exec -it  keystone bash
 # Inside the container
-root@26bd2b8a8a60 ~ # source openrc
+root@26bd2b8a8a60 /root # source openrc
 openstack user list
 +----------------------------------+-------+
 | ID                               | Name  |

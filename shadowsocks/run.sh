@@ -10,5 +10,5 @@ docker run  -d   \
     -p  33408:33408 \
     -p  33409:33409 \
     -p  33410:33410 \
-swcloud_shadowsocks 
+greshem_shadowsocks 
  

@@ -3,8 +3,8 @@
 IDENTITY_HOST="${IDENTITY_HOST:-localhost}"
 KEYSTONE_ADMIN_PASSWORD="${KEYSTONE_ADMIN_PASSWORD:-bb915e9ce0ae4b46e82a069b2ef0f8d7}"
 
-sed -i.bak s/IDENTITY_HOST/$IDENTITY_HOST/g ~/openrc
-sed -i.bak s/KEYSTONE_ADMIN_PASSWORD/$KEYSTONE_ADMIN_PASSWORD/g ~/openrc
+sed -i.bak s/IDENTITY_HOST/$IDENTITY_HOST/g /root/openrc
+sed -i.bak s/KEYSTONE_ADMIN_PASSWORD/$KEYSTONE_ADMIN_PASSWORD/g /root/openrc
 
 if [[ ! -d /var/lib/mysql/mysql ]]; then
     cp -r /data/* /var/lib/mysql/
@@ -33,7 +33,7 @@ keystone-manage bootstrap --bootstrap-username admin \
 		--bootstrap-public-url "https://$IDENTITY_HOST:5000/v3" \
 		--bootstrap-internal-url "https://$IDENTITY_HOST:5000/v3"
 
-source ~/openrc
+source /root/openrc
 # Create 'service' project if it does not exists
 openstack project show service
 if [[ $? == 1 ]]; then

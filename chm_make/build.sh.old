@@ -1,14 +1,14 @@
 dnf install  wine-core.i686  perl  wget global tar perl-Template-Toolkit iputils 
 
 echo $PATH
-PATH=$PATH:~/bin
+PATH=$PATH:/root/bin
 
-cd ~/
+cd /root/
 wget  http://mirrors.163.com/gentoo/distfiles//fping-3.13.tar.gz
 wget  http://mirrors.163.com/gentoo/distfiles//fping-3.10.tar.gz
 
-cd ~/
+cd /root/
 tar -zxvf fping-3.10.tar.gz 
 cd fping-3.10/
-bash ~/bin/cur_dir_gen_chm.sh  
+bash /root/bin/cur_dir_gen_chm.sh  
 

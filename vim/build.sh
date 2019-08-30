@@ -1,7 +1,7 @@
 if [ ! -f root_vim ];then
-    cp -a -r ~/.vim root_vim
+    cp -a -r /root/.vim root_vim
 fi
-cp -a -r ~/.vimrc  ./
+cp -a -r /root/.vimrc  ./
 
 docker build -t vim:centos7 ./
 docker run -d -p 8080:8080 vim:centos7

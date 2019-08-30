@@ -13,8 +13,8 @@ set -x
 #CLUSTER_NETWORK=192.168.54.0/24
 
 HOST_IP=$(hostname -I |awk '{print $1}' ) 
-PUBLIC_NETWORK=$(python  ~/bin/ip_2_network.py  $HOST_IP )
-CLUSTER_NETWORK=$(python  ~/bin/ip_2_network.py  $HOST_IP )
+PUBLIC_NETWORK=$(python  /root/bin/ip_2_network.py  $HOST_IP )
+CLUSTER_NETWORK=$(python  /root/bin/ip_2_network.py  $HOST_IP )
 
 
 

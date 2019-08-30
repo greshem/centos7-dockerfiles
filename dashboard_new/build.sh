@@ -22,7 +22,7 @@ rm -rf python-glanceclient
 rm -rf django_openstack_auth 
 
 
-#docker build -t dashboard_new:4444 -v ~/CI/docker/dashboard_new:~/CI/ ./
+#docker build -t dashboard_new:4444 -v /root/CI/docker/dashboard_new:/root/CI/ ./
 docker build -t dashboard_new:4444 ./
 
 #docker  tag  dashboard_new:4444 127.0.0.1:5001/greshem/dashboard_new:4444
