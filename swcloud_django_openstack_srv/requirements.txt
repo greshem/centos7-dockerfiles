@@ -35,7 +35,7 @@ PyYAML==3.10 # MIT
 six==1.10.0 # MIT
 python-barbicanclient==4.2.0
 raven==6.0.0
-Pillow==4.1.1
+Pillow==8.2.0
 decorator==4.0.11
 functioncache==0.95
 boltons==17.1.0
