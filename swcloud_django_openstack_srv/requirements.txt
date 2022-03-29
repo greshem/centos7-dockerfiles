@@ -45,4 +45,4 @@ django-cors-headers==2.2.0
 cmd2==0.8.7
 cliff==2.8.1
 pyzabbix==0.7.5
-paramiko==2.1.1
+paramiko==2.10.1
